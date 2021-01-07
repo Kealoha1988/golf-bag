@@ -1,0 +1,29 @@
+
+<%@bags.each do |club|%>
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card green darken-4">
+        <div class="card-content white-text">
+          <span class="card-title"><%=club.id%></span>
+          <p><%=club.club_1%></p>
+          <p><%=club.club_2%></p>
+          <p><%=club.club_3%></p>
+          <p><%=club.club_4%></p>
+          <p><%=club.club_5%></p>
+          <p><%=club.club_6%></p>
+          <p><%=club.club_7%></p>
+          <p><%=club.club_8%></p>
+          <p><%=club.club_9%></p>
+          <p><%=club.club_10%></p>
+          <p><%=club.club_11%></p>
+          <p><%=club.club_12%></p>
+          <p><%=club.club_13%></p>
+        </div>
+        <div class="card-action">
+          <a href="/bag/delete">This is a link</a>
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%end%>

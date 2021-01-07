@@ -13,13 +13,17 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  get '/user/new' do
+    erb :'user/new'
+  end
+
   get '/user' do
-    erb :'/user/new'
+    erb :'index'
   end
 
   post '/user' do
     golfer = User.new(params[:user])
-    
+    golfer.save
     erb :'user/index'
   end
 end
