@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20210107031911) do
 
   create_table "bags", force: :cascade do |t|
+    t.string   "name"
     t.string   "club_1"
     t.string   "club_2"
     t.string   "club_3"

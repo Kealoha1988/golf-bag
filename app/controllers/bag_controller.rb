@@ -9,7 +9,6 @@ class BagController < ApplicationController
 
   get '/bag' do
     @bags = Bag.all
-  
 
     erb :'bag/index'
   end
@@ -24,13 +23,10 @@ class BagController < ApplicationController
   
   get '/bag/:id' do
     @bag = Bag.find_by_id(params[:id])
-   
+  
     erb :'bag/show'
   end
 
-  get '/bag/delete' do
-  
-end
 
 
 
