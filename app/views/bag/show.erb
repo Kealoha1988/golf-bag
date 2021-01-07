@@ -20,10 +20,16 @@
           <p><%=@bag.club_13%></p>
         </div>
         <div class="card-action">
-          <a href="#">Edit</a>
-          <a href="#">Delete</a>
+          <a href="/bag/<%=@bag.id%>/edit">Edit</a>
         </div>
       </div>
     </div>
   </div>
+
+  <br>
+
+  <form action='/bag/<%=@bag.id %>' method="post">
+   <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Game" class="btn-small red white-text">
+</form>
   
