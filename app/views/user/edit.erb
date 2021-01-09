@@ -1,0 +1,43 @@
+<style>
+      body {
+        background-image: url("https://www.oakcreekgolfclub.com/wp-content/uploads/2020/08/OCGC_VideoStill-1280x720.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+      }
+</style>
+
+<br>
+<br>
+<br>
+<center>
+<h1 class="white-text">Edit Your Profile</h1>
+
+
+<div class="container">
+<form action="/user/<%=@user.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+      <small>
+
+        <div class="input-field col s6 container ">
+          <input id="name" name="user[name]" type="text" class="validate" value="<%=@user.name%>">
+          <label for="title">Edit Name</label>
+        </div>
+
+       <div class="input-field col s6 container ">
+          <input id="bio" name="user[bio]" type="text" class="validate" value="<%=@user.bio%>">
+          <label for="title">Add Bio</label>
+        </div>
+
+
+      </small>
+
+</div>
+  
+        
+
+               
+<input class="btn green darken-4" type="submit" value="Make Changes">
+</form>
+

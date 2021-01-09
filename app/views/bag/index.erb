@@ -9,11 +9,8 @@
 </style>
 <center>
 <h1 class="white-text"><%=@user.name.split(" ").each{|t| t.capitalize}.join(" ")%></h1>
-<form action="/bag/<%= @user.id %>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Bag" class="btn-small red white-text">
-    <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Bag" class="btn-small red white-text">
+<form action="/user/<%=@user.id%>" method="get">
+  <input type="submit" value="Edit Profile" class="btn-small green darken-4 white-text">
 </form>
 
 
