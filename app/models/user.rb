@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   has_many :bags
  
 
-
+  validates :name, presence: true, uniqueness: true
 
 end

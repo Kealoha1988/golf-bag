@@ -17,6 +17,10 @@ class ApplicationController < Sinatra::Base
     erb :'user/new'
   end
 
+
+  get '/bouncer' do
+   erb :'people/bouncer'
+  end
   
   helpers do
 
@@ -24,12 +28,18 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
+    # def bouncer
+    #   if !logged_in?
+    #     erb :'bouncer'
+    #   end
+    # end
+
     def login(name, password) 
       #Check if user.name exists, if true make session, if false redirect to login
       #Is user who they claim to be
       user = User.find_by(:name => name)
         if user && user.authenticate(password)
-        session[:name] = user.name
+        session[:user_id] = user.id
       else
         redirect '/login'
       end
@@ -40,12 +50,14 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-     User.find_by(:name => session[:name]) if session[:name]
+     User.find_by(:id => session[:user_id]) if session[:user_id]
     end
 
     def if_not_yours
       redirect '/bag' unless @bag.owner == current_user
     end
+
+
 
 
   end
