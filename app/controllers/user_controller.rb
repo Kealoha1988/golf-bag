@@ -4,6 +4,7 @@ class UserController < ApplicationController
     erb :'users/new'
   end
 
+
   post '/users' do
     @user = User.new
     @user.name = params[:name]
@@ -13,6 +14,15 @@ class UserController < ApplicationController
     else
       erb :'users/new'
     end
+  end
+
+  get '/user' do
+    @all_users = User.all
+    erb :'user/index'
+  end
+  get '/user/:id' do
+    @user = User.find_by_id(params[:id])
+    erb :'bag/show'
   end
 
 end

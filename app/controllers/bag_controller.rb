@@ -47,7 +47,7 @@ class BagController < ApplicationController
   end
 
   patch '/bag/:id' do
-    binding.pry
+    
     @bag = Bag.find_by_id(params[:id])
     redirect '/bag' unless @bag
     if @bag.update(params[:bag])

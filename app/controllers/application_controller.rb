@@ -17,15 +17,6 @@ class ApplicationController < Sinatra::Base
     erb :'user/new'
   end
 
-  get '/user' do
-    erb :'index'
-  end
-
-  post '/user' do
-    golfer = User.new(params[:user])
-    golfer.save
-    erb :'user/index'
-  end
   
   helpers do
 

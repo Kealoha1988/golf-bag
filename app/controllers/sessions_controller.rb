@@ -5,10 +5,8 @@ get '/login' do
 end
 
 post '/' do
-
   login(params[:name], params[:password])
-  erb :'bag/new'
-  
+  erb :'user/welcome'
 end
 
 get '/logout' do
