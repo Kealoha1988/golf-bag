@@ -40,7 +40,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @current_user ||= User.find_by(:name => session[:name]) if session[:name]
+     User.find_by(:name => session[:name]) if session[:name]
     end
 
     def if_not_yours

@@ -16,14 +16,15 @@ class UserController < ApplicationController
     end
   end
 
-  get '/user' do
-    @all_users = User.all
-    erb :'user/index'
-  end
-  get '/user/:id' do
-    @user = User.find_by(:id => params[:id])
-    
-    erb :'user/show'
+
+
+  delete '/user/:id' do
+  
+    @user = current_user
+    if @user
+      @user.destroy
+      redirect "/"
+    end
   end
 
 end

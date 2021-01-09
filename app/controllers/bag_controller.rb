@@ -18,7 +18,9 @@ class BagController < ApplicationController
     if !logged_in?
       redirect '/'
     else
+      @user = current_user
     @bags = current_user.bags
+ 
     erb :'bag/index'
     end
   end

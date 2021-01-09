@@ -23,14 +23,17 @@
 
     <nav class= "green darken-4">
     <div class="nav-wrapper container">
+      <%if !logged_in?%>
       <a href="#" class="brand-logo right">My Golf Bag</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <%if !logged_in?%>
-      <li><a href="/user">Our Golfers</a></li>
+      <li><a href="/">SignUp/Login</a></li>
+      <li><a href="/people">Our Golfers</a></li>
       <%else%>
+    <a href="/user/profile" class="brand-logo right">My Golf Bag</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/logout">Logout</a></li>
         <li><a href="/bag/new">New Bag</a></li>
-        <li><a href="/user">Our Golfers</a></li>
+        <li><a href="/people">Our Golfers</a></li>
         <li><a href="/bag">My Bags</a></li>
         <%end%>
       </ul>
