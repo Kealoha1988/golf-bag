@@ -28,12 +28,7 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    # def bouncer
-    #   if !logged_in?
-    #     erb :'bouncer'
-    #   end
-    # end
-
+    
     def login(name, password) 
       #Check if user.name exists, if true make session, if false redirect to login
       #Is user who they claim to be

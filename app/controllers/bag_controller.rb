@@ -43,9 +43,12 @@ class BagController < ApplicationController
   end
   
   get '/bag/:id' do
+    if logged_in?
     @bag = Bag.find_by_id(params[:id])
-    
     erb :'bag/show'
+    else
+      erb :"people/bouncer"
+    end
   end
 
   patch '/bag/:id' do

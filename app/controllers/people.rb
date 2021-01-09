@@ -6,6 +6,7 @@ class PeopleController < ApplicationController
   end
 
   get '/people/:id' do 
+    bouncer
 
     @user = User.all.find_by(:id => params[:id])
     erb :'people/show'

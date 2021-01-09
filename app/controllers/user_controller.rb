@@ -1,9 +1,5 @@
 class UserController < ApplicationController
 
-  get '/users/new' do
-    erb :'users/new'
-  end
-
 
   post '/users' do
     @user = User.new
@@ -12,14 +8,18 @@ class UserController < ApplicationController
     if @user.save
       redirect '/login'
     else
-      erb :'users/new'
+      erb :'user/new'
     end
   end
 
   get '/user/:id' do
+    if logged_in?
     @user = current_user
     erb :'user/edit'
+    else
+      erb :"people/bouncer"
   end
+end
 
   patch '/user/:id' do
     @user = current_user
