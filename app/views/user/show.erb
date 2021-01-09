@@ -7,28 +7,35 @@
         background-size: cover;
       }
 </style>
+<center>
+<h1 class="white-text"><%=@user.name.capitalize%>'s Bags</h1>
 
 
 <center>
-<div>
+<%@user.bags.each do |club|%>
   <div class="row">
-    <div class="col s12 m6">
+    <div class="col s12 m3">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
-          <span class="card-title"><%=@user.name%></span>
-
-           <%@user.bags.each do |bag|%>
-          <p><a href="3"><%=bag.name%></a></p>
-          <%end%>
-          
+          <span class="card-title">Hello</span>
+          <p><%=club.club_1%></p>
+          <p><%=club.club_2%></p>
+          <p><%=club.club_3%></p>
+          <p><%=club.club_4%></p>
+          <p><%=club.club_5%></p>
+          <p><%=club.club_6%></p>
+          <p><%=club.club_7%></p>
+          <p><%=club.club_8%></p>
+          <p><%=club.club_9%></p>
+          <p><%=club.club_10%></p>
+          <p><%=club.club_11%></p>
+          <p><%=club.club_12%></p>
+          <p><%=club.club_13%></p>
         </div>
         <div class="card-action">
+          <a href="#">Show</a>
         </div>
       </div>
     </div>
+  <%end%>
   </div>
-
- 
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Bag" class="btn-small red white-text">
-</form>

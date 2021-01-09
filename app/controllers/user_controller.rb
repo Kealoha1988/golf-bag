@@ -21,8 +21,9 @@ class UserController < ApplicationController
     erb :'user/index'
   end
   get '/user/:id' do
-    @user = User.find_by_id(params[:id])
-    erb :'bag/show'
+    @user = User.find_by(:id => params[:id])
+    
+    erb :'user/show'
   end
 
 end
