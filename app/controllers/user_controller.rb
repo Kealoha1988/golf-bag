@@ -25,7 +25,7 @@ end
     @user = current_user
     redirect '/user' unless @user
     if @user.update(params[:user])
-        redirect "/user/#{@user.id}"
+        redirect "/bag"
     else
         redirect "/"
     end 
