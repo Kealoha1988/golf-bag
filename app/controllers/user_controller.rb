@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
 
-  post '/users' do
+  post '/users' do   #saves new user sends to login
     @user = User.new
     @user.name = params[:name]
     @user.password = params[:password]
@@ -12,7 +12,7 @@ class UserController < ApplicationController
     end
   end
 
-  get '/user/:id' do
+  get '/user/:id' do    #show user edit form
     if logged_in?
     @user = current_user
     erb :'user/edit'
@@ -21,7 +21,7 @@ class UserController < ApplicationController
   end
 end
 
-  patch '/user/:id' do
+  patch '/user/:id' do      #edit user
     @user = current_user
     redirect '/user' unless @user
     if @user.update(params[:user])
@@ -32,8 +32,7 @@ end
   end
 
 
-  delete '/user/:id' do
-  
+  delete '/user/:id' do    #delete user
     @user = current_user
     if @user
       @user.destroy

@@ -2,7 +2,7 @@ class BagController < ApplicationController
   
   
   
-  get '/bag/new' do
+  get '/bag/new' do    #create new bag
     if !logged_in?
       redirect '/'
     else
@@ -11,10 +11,8 @@ class BagController < ApplicationController
     end
   end
   
- 
   
-  
-  get '/bag' do
+  get '/bag' do       #show user and bag
     if !logged_in?
       redirect '/'
     else
@@ -25,7 +23,7 @@ class BagController < ApplicationController
     end
   end
   
-  get "/bag/:id/edit" do
+  get "/bag/:id/edit" do      #show edit form
     if !logged_in?
       redirect '/login'
     else
@@ -36,13 +34,13 @@ class BagController < ApplicationController
   
   
   
-  post '/bag/made' do
+  post '/bag/made' do    #save bag
     new_bag = current_user.bags.build(params[:bag])
     new_bag.save
     erb :'bag/made'
   end
   
-  get '/bag/:id' do
+  get '/bag/:id' do    #show individual bag
     if logged_in?
     @bag = Bag.find_by_id(params[:id])
     erb :'bag/show'
@@ -51,8 +49,7 @@ class BagController < ApplicationController
     end
   end
 
-  patch '/bag/:id' do
-    
+  patch '/bag/:id' do      #edit individual bag
     @bag = Bag.find_by_id(params[:id])
     redirect '/bag' unless @bag
     if @bag.update(params[:bag])
@@ -62,8 +59,7 @@ class BagController < ApplicationController
     end 
   end
 
-  delete '/bag/:id' do
-  
+  delete '/bag/:id' do     #delete individual bag
     @bag = Bag.find_by_id(params[:id])
     if @bag
       @bag.destroy
