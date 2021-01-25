@@ -1,5 +1,11 @@
 class UserController < ApplicationController
 
+  get '/welcome' do 
+    redirect_if_not_logged_in
+    @name = current_user.name
+    erb :'users/welcome'
+  end
+
 
   post '/users' do   #saves new user sends to login
     @user = User.new
@@ -8,20 +14,21 @@ class UserController < ApplicationController
     if @user.save
       redirect '/login'
     else
-      erb :'user/new'
+      erb :'users/new'
     end
   end
 
-  get '/user/:id/edit' do    #show user edit form
-    if logged_in?
-      current_user
-      erb :'user/edit'
-    end
-  end
-
-  patch '/user/:id/edit' do      #edit user
+  get '/users/:id/edit' do    #show user edit form
+    redirect_if_not_logged_in
     current_user
-    redirect '/user' unless @user
+    redirect_if_not_you
+    erb :'users/edit'
+  end
+
+  patch '/users/:id/edit' do      #edit user
+    redirect_if_not_logged_in
+    current_user
+    redirect_if_not_you
     if @user.update(params[:user])
         redirect "/bags"
     else
@@ -30,8 +37,10 @@ class UserController < ApplicationController
   end
 
 
-  delete '/user/:id' do    #delete user
+  delete '/users/:id' do    #delete user
+    redirect_if_not_logged_in
     current_user
+    redirect_if_not_you
     if @user
       @user.destroy
       redirect "/"

@@ -13,26 +13,40 @@ class ApplicationController < Sinatra::Base
     erb :'welcome'
   end
 
-  get '/user/new' do    #show signin form
-    erb :'user/new'
+  get '/users/new' do    #show signin form
+    erb :'users/new'
   end
 
 
   get '/bouncer' do
-   erb :'people/bouncer'
+   erb :'bouncer'
   end
-  
+
+
+
+
   helpers do
 
+    def current_user
+     @user = User.find_by_id(session[:user_id]) if session[:user_id]
+    end
+
+    
     def logged_in?
       !!current_user
+    end
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect '/'
+      end
     end
 
     
     def login(name, password) 
       #Check if user.name exists, if true make session, if false redirect to login
       #Is user who they claim to be
-      user = User.find_by(:name => name)
+      user = User.find_by(name: name)
         if user && user.authenticate(password)
         session[:user_id] = user.id
       else
@@ -44,21 +58,26 @@ class ApplicationController < Sinatra::Base
       session.clear
     end
 
-    def current_user
-     @user = User.find_by_id(session[:user_id]) if session[:user_id]
-    end
 
     def find_bag
       @bag = Bag.find_by_id(params[:id])
     end
 
-    def if_not_yours
-      if @bag.user != current_user
-        redirect '/bags'
+
+    def redirect_if_not_you
+      if @user.nil? || @user != User.find_by_id(params[:id])
+        redirect '/bouncer'
       end
     end
 
+
+    def redirect_if_not_yours
+      if @bag.nil? || @bag.user != current_user
+        redirect '/bouncer'
+      end
+    end
+
+
+
   end
-
-
 end

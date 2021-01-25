@@ -13,13 +13,13 @@
 <div class= "row container">
 
 <div class="col s6 right-align">
-<form action="/user/<%=@user.id%>/edit" method="get">
+<form action="/users/<%=@user.id%>/edit" method="get">
   <input type="submit" value="Edit Profile" class="btn-small green darken-4 white-text">
 </form>
 </div>
 
 <div class="col s6 left-align">
-<form action="/user/<%= @user.id%>" method="post">
+<form action="/users/<%= @user.id%>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Profile" class="btn-small red white-text">
 </form>

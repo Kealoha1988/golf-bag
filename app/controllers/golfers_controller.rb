@@ -6,7 +6,6 @@ class PeopleController < ApplicationController
   end
 
   get '/golfers/:id' do    #show individual
-
     @user = User.all.find_by(id: params[:id])
     erb :'golfers/show'
   end 
