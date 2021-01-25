@@ -12,20 +12,18 @@ class UserController < ApplicationController
     end
   end
 
-  get '/user/:id' do    #show user edit form
+  get '/user/:id/edit' do    #show user edit form
     if logged_in?
-    @user = current_user
-    erb :'user/edit'
-    else
-      erb :"people/bouncer"
+      current_user
+      erb :'user/edit'
+    end
   end
-end
 
-  patch '/user/:id' do      #edit user
-    @user = current_user
+  patch '/user/:id/edit' do      #edit user
+    current_user
     redirect '/user' unless @user
     if @user.update(params[:user])
-        redirect "/bag"
+        redirect "/bags"
     else
         redirect "/"
     end 
@@ -33,7 +31,7 @@ end
 
 
   delete '/user/:id' do    #delete user
-    @user = current_user
+    current_user
     if @user
       @user.destroy
       redirect "/"

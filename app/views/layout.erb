@@ -1,8 +1,19 @@
+<style>
+      body {
+        background-image: url("https://www.oakcreekgolfclub.com/wp-content/uploads/2020/08/OCGC_VideoStill-1280x720.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+      }
+</style>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -20,6 +31,7 @@
     
   </head>
   <body>
+  
 
     <nav class= "green darken-4">
     <div class="nav-wrapper container">
@@ -27,14 +39,14 @@
       <a href="#" class="brand-logo right">My Golf Bag</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/">SignUp/Login</a></li>
-      <li><a href="/people">Our Golfers</a></li>
+      <li><a href="/golfers">Our Golfers</a></li>
       <%else%>
     <a href="/user/profile" class="brand-logo right">My Golf Bag</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a href="/logout">Logout</a></li>
-        <li><a href="/bag/new">New Bag</a></li>
-        <li><a href="/people">Our Golfers</a></li>
-        <li><a href="/bag">My Stuff</a></li>
+        <li><a href="/bags/new">New Bag</a></li>
+        <li><a href="/golfers">Our Golfers</a></li>
+        <li><a href="/bags">My Stuff</a></li>
         <%end%>
       </ul>
     </div>

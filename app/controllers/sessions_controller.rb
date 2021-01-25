@@ -4,7 +4,7 @@ get '/login' do
   erb :'sessions/login'
 end
 
-post '/' do
+post '/' do  #sets session 
   login(params[:name], params[:password])
 @name = params[:name]
   erb :'user/welcome'

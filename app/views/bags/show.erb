@@ -1,12 +1,4 @@
-<style>
-      body {
-        background-image: url("https://www.oakcreekgolfclub.com/wp-content/uploads/2020/08/OCGC_VideoStill-1280x720.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-        background-size: cover;
-      }
-</style>
+
 
 
 <div class= "container">
@@ -33,7 +25,7 @@
           <p><%=@bag.club_14%></p>
         </div>
         <div class="card-action">
-          <center><a href="/bag/<%=@bag.id%>/edit">Edit</a></center>
+          <center><a href="/bags/<%=@bag.id%>/edit">Edit</a></center>
         </div>
       </div>
     </div>
@@ -42,7 +34,7 @@
   <br>
 </div>
 <center>
-<form action="/bag/<%= @bag.id %>" method="post">
+<form action="/bags/<%= @bag.id %>" method="post">
  
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Bag" class="btn-small red white-text">
