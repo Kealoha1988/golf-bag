@@ -38,7 +38,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_logged_in
       if !logged_in?
-        redirect '/'
+        redirect '/bouncer'
       end
     end
 
@@ -72,11 +72,10 @@ class ApplicationController < Sinatra::Base
 
 
     def redirect_if_not_yours
-      if @bag.nil? || @bag.user != current_user
+      if @bag.nil? || @bag.user.nil? || @bag.user != current_user
         redirect '/bouncer'
       end
     end
-
 
 
   end

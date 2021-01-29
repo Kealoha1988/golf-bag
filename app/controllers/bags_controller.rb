@@ -1,4 +1,4 @@
-class BagController < ApplicationController
+class BagsController < ApplicationController
   
   
   
@@ -17,7 +17,7 @@ class BagController < ApplicationController
   
   
   
-  post '/bags/made' do    #save bag
+  post '/bags' do   
     redirect_if_not_logged_in
     new_bag = current_user.bags.build(params[:bag])
     if new_bag.save

@@ -1,4 +1,4 @@
-class PeopleController < ApplicationController
+class GolfersController < ApplicationController
 
   get '/golfers' do        #show all users
     @all_users = User.all

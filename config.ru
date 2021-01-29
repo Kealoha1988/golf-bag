@@ -7,7 +7,7 @@ end
 use Rack::MethodOverride
 
 use SessionsController
-use PeopleController
-use UserController
-use BagController
+use GolfersController
+use UsersController
+use BagsController
 run ApplicationController

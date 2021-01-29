@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   get '/welcome' do 
     redirect_if_not_logged_in
@@ -12,9 +12,11 @@ class UserController < ApplicationController
     @user.name = params[:name]
     @user.password = params[:password]
     if @user.save
-      redirect '/login'
+      login(params[:name], params[:password])
+      @name = params[:name]
+      erb :'users/welcome'
     else
-      erb :'users/new'
+      erb :'/'
     end
   end
 
@@ -42,6 +44,7 @@ class UserController < ApplicationController
     current_user
     redirect_if_not_you
     if @user
+      @user.bags.each{|b| b.delete}
       @user.destroy
       redirect "/"
     end
