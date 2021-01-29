@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+
+  get '/users/new' do    #show signin form
+    erb :'users/new'
+  end
+
   get '/welcome' do 
     redirect_if_not_logged_in
     @name = current_user.name
@@ -7,16 +12,18 @@ class UsersController < ApplicationController
   end
 
 
+
+
   post '/users' do   #saves new user sends to login
     @user = User.new
     @user.name = params[:name]
     @user.password = params[:password]
-    if @user.save
+    if !params[:name].nil? && !params[:password].nil? && @user.save
       login(params[:name], params[:password])
       @name = params[:name]
       erb :'users/welcome'
     else
-      erb :'/'
+      redirect '/'
     end
   end
 
