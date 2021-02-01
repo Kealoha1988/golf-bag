@@ -19,9 +19,9 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.password = params[:password]
     if !params[:name].nil? && !params[:password].nil? && @user.save
-      login(params[:name], params[:password])
+      session[:user_id] = @user.id
       @name = params[:name]
-      erb :'users/welcome'
+      redirect '/welcome'
     else
       redirect '/'
     end

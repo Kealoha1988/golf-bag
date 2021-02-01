@@ -8,8 +8,7 @@ end
 
 post '/' do  #sets session 
   login(params[:name], params[:password])
-  @name = params[:name]
-  erb :'users/welcome'
+  redirect '/welcome'
 end
 
 get '/logout' do

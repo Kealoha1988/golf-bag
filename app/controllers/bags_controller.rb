@@ -15,13 +15,13 @@ class BagsController < ApplicationController
     erb :'bags/index'
   end
   
-  
-  
+
   post '/bags' do   
     redirect_if_not_logged_in
     new_bag = current_user.bags.build(params[:bag])
     if new_bag.save
-      erb :'bags/made'
+
+      redirect '/made'
     else 
       redirect '/bags'
     end
