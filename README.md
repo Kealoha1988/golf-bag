@@ -1,41 +1,37 @@
-
-# About
-
+# My Golf Bag
 Welcome to My Golf Bag!
 
 This app is a simple way to keep track of your golf clubs
 You can also view other users
 see their bios and the sets of clubs they have posted
 
+Written in Ruby and Sinatra
 
-## Installation
+## Installation 
 
-To start the app
-open the terminal and type
+In terminal
 
-
+```bash
 bundle install
-
-
-then press enter
-after the installation is complete
-go back into the terminal and type
-
-
+```
+followed by;
+```bash
 shotgun
+```
 
-and press enter
-open your web browser
-in the address bar type
+## run
+```
+In a browser of your choice
+```
+Enter https://localhost:9393
+```
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+Choose a LicenseChoose a License
+MIT License
+A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
-localhost:9393
-
-
-press enter and you are in!
-
-## Usage
-
-Users can create profiles where they can post what's in their golf bags
-Update and delete bag names, clubs, player bios, and account.
-Enjoy!!
+Thanks for using My Golf Bag!
